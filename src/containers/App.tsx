@@ -14,20 +14,13 @@ import {
 
 const navigation = [
   { name: "Task List", href: "/" },
-  { name: "Task", href: "/task/:uid" },
+  { name: "Task", href: "/task" },
   { name: "New Task", href: "/new" },
 ];
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
-
-/* classNames(
-  item.current
-    ? "bg-gray-900 text-white"
-    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-  "rounded-md px-3 py-2 text-sm font-medium"
-) */
 
 function Layout() {
   return (
@@ -130,7 +123,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<TaskList />} />
           <Route path="new" element={<NewTask />} />
-          <Route path="/task/:uid" element={<Task />} />
+          <Route path="/task?/:uid" element={<Task />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
